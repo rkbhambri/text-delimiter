@@ -4,6 +4,7 @@ import Controls from '../Controls/Controls';
 import ConverterSettings from './ConverterSettings/ConverterSettings';
 import DelimiterData from '../DelimiterData/DelimiterData';
 import settingsImage from '../../settings.svg';
+
 class DelimiterWrap extends Component {
 
 	state = {
@@ -11,7 +12,7 @@ class DelimiterWrap extends Component {
 		columnText: '',
 		delimitedText: '',
 		isSettingsVisible: false,
-		explode: '\\n',
+		explode: null,
 		isRemoveNewLine: true,
 		isRemoveDuplicate: false,
 		quotes: null
@@ -33,7 +34,9 @@ class DelimiterWrap extends Component {
 
 	delimitData = () => {
 		let delimitedText = this.state.delimitedText;
-
+		if (this.state.explode === null) {
+			delimitedText = this.state.columnText.split(' ').join(this.state.delimiter);
+		}
 		if (this.state.explode === '\\n') {
 			console.log('-----------')
 			delimitedText = this.state.columnText.split(' ').join(this.state.delimiter + '\n');

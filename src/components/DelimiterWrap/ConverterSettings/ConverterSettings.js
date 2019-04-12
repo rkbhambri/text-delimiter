@@ -59,7 +59,7 @@ const ConverterSettings = (props) => {
                 </div>
                 <form className="select col-md-6 p-4" onChange={(event) => props.addQuotes(event)}>
                     <label className="radio-inline">
-                        <input type="radio" name="quotes" value={null} defaultChecked /> No
+                        <input type="radio" name="quotes" defaultChecked /> No
                     </label>
                     <label className="radio-inline pl-4">
                         <input type="radio" name="quotes" value='""' /> Double
