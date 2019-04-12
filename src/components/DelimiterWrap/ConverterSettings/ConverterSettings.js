@@ -2,7 +2,7 @@ import React from 'react';
 
 const ConverterSettings = (props) => {
     return (
-        <div className="converter-settings border w-100">
+        <div className="converter-settings border w-100 mt-3">
             <div className="tidyup row col-md-7">
                 <div className="settings-title col-md-6 p-3" style={{ lineHeight: '14px' }}>
                     <p>Tidy Up</p>
@@ -57,17 +57,17 @@ const ConverterSettings = (props) => {
                     <p>Quotes</p>
                     <p>Add quotes to each record</p>
                 </div>
-                <div className="select col-md-6 p-4">
+                <form className="select col-md-6 p-4" onChange={(event) => props.addQuotes(event)}>
                     <label className="radio-inline">
-                        <input type="radio" name="quotes" defaultChecked /> No
+                        <input type="radio" name="quotes" value={null} defaultChecked /> No
                     </label>
                     <label className="radio-inline pl-4">
-                        <input type="radio" name="quotes" /> Double
+                        <input type="radio" name="quotes" value='""' /> Double
                     </label>
                     <label className="radio-inline pl-4">
-                        <input type="radio" name="quotes" /> Single
+                        <input type="radio" name="quotes" value="''" /> Single
                     </label>
-                </div>
+                </form>
             </div>
         </div>
     );
