@@ -38,7 +38,6 @@ class DelimiterWrap extends Component {
 			delimitedText = this.state.columnText.split(' ').join(this.state.delimiter);
 		}
 		if (this.state.explode === '\\n') {
-			console.log('-----------')
 			delimitedText = this.state.columnText.split(' ').join(this.state.delimiter + '\n');
 		}
 		if (this.state.explode !== '\\n') {
@@ -46,8 +45,6 @@ class DelimiterWrap extends Component {
 				delimitedText = this.state.columnText.split(/\n/).join(this.state.delimiter);
 				delimitedText = delimitedText.split(this.state.delimiter).join(',\n');
 			} else {
-				console.log('---this.state.explode----', this.state.explode)
-
 				delimitedText = this.state.columnText.split(/\n/).join(this.state.delimiter);
 			}
 			// delimitedText = this.state.columnText.split(this.state.explode).join(this.state.delimiter);
@@ -87,25 +84,27 @@ class DelimiterWrap extends Component {
 	};
 
 	selectExplode = (event) => {
-		this.setState({ explode: event.target.value, delimiter: event.target.value });
-	}
+		this.setState({
+			explode: event.target.value,
+			delimiter: event.target.value
+		});
+	};
 
 	removeNewLine = (event) => {
 		this.setState({ isRemoveNewLine: event.target.value });
 	};
 
 	removeDuplicateToggle = (event) => {
-		this.setState({ isRemoveDuplicate: event.target.value })
+		this.setState({ isRemoveDuplicate: event.target.value });
 	};
 
 	addQuotes = (event) => {
-		console.log('---quotes---', event.target.value);
-		this.setState({ quotes: event.target.value })
-	}
+		this.setState({ quotes: event.target.value });
+	};
 
 	render() {
 		return (
-			<div className="delimiter-wrap row m-2">
+			<div className="delimiter-wrap row m-2 pt-4">
 				<ColumnData
 					changeColumnText={(event) => this.changeColumnText(event)}
 					columnText={this.state.columnText} />
