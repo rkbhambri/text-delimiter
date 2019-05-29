@@ -12,7 +12,7 @@ const Controls = (props) => {
             </select>
             <button
                 className="btn btn-primary form-control mt-2"
-                onClick={props.delimitData}>-]</button>
+                onClick={props.delimitData}>&#8594;</button>
             <button
                 className="btn btn-primary form-control mt-2"
                 onClick={props.reset}>Reset</button>
